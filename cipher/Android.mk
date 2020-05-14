@@ -1,0 +1,522 @@
+LOCAL_PATH := $(call my-dir)
+
+##################################### sample_cipher #####################################
+include $(CLEAR_VARS)
+include $(SDK_DIR)/Android.def
+
+ifeq (1,$(filter 1,$(shell echo "$$(( $(PLATFORM_SDK_VERSION) >= 26 ))" )))
+LOCAL_PROPRIETARY_MODULE := true
+endif
+LOCAL_MODULE := sample_cipher
+LOCAL_MULTILIB := 32
+
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_CFLAGS := $(CFG_HI_CFLAGS) $(CFG_HI_BOARD_CONFIGS)
+LOCAL_CFLAGS += -DLOG_TAG=\"$(LOCAL_MODULE)\"
+
+ifeq ($(CFG_HI_CIPHER_MULTICIPHER_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_MULTICIPHER_SUPPORT
+endif
+ifeq ($(CFG_HI_CIPHER_HASH_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_HASH_SUPPORT
+endif
+ifeq ($(CFG_HI_OTP_KLAD_V100),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V100_SUPPORT
+else ifeq ($(CFG_HI_OTP_KLAD_V200),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V200_SUPPORT
+endif
+
+LOCAL_SRC_FILES := sample_cipher.c
+
+LOCAL_C_INCLUDES := $(COMMON_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_API_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_API_INCLUDE)
+LOCAL_C_INCLUDES += $(SAMPLE_DIR)/common
+
+LOCAL_SHARED_LIBRARIES := liblog libcutils libdl libm libhi_common libhi_msp
+
+include $(BUILD_EXECUTABLE)
+##################################### sample_anticopy #####################################
+include $(CLEAR_VARS)
+include $(SDK_DIR)/Android.def
+
+ifeq (1,$(filter 1,$(shell echo "$$(( $(PLATFORM_SDK_VERSION) >= 26 ))" )))
+LOCAL_PROPRIETARY_MODULE := true
+endif
+LOCAL_MODULE := sample_anticopy
+LOCAL_MULTILIB := 32
+
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_CFLAGS := $(CFG_HI_CFLAGS) $(CFG_HI_BOARD_CONFIGS)
+LOCAL_CFLAGS += -DLOG_TAG=\"$(LOCAL_MODULE)\"
+
+ifeq ($(CFG_HI_CIPHER_MULTICIPHER_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_MULTICIPHER_SUPPORT
+endif
+ifeq ($(CFG_HI_CIPHER_HASH_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_HASH_SUPPORT
+endif
+ifeq ($(CFG_HI_OTP_KLAD_V100),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V100_SUPPORT
+else ifeq ($(CFG_HI_OTP_KLAD_V200),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V200_SUPPORT
+endif
+
+LOCAL_SRC_FILES := sample_anticopy.c
+
+LOCAL_C_INCLUDES := $(COMMON_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_API_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_API_INCLUDE)
+LOCAL_C_INCLUDES += $(SAMPLE_DIR)/common
+
+LOCAL_SHARED_LIBRARIES := liblog libcutils libdl libm libhi_common libhi_msp
+
+include $(BUILD_EXECUTABLE)
+##################################### sample_cbcmac #####################################
+include $(CLEAR_VARS)
+include $(SDK_DIR)/Android.def
+
+ifeq (1,$(filter 1,$(shell echo "$$(( $(PLATFORM_SDK_VERSION) >= 26 ))" )))
+LOCAL_PROPRIETARY_MODULE := true
+endif
+LOCAL_MODULE := sample_cbcmac
+LOCAL_MULTILIB := 32
+
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_CFLAGS := $(CFG_HI_CFLAGS) $(CFG_HI_BOARD_CONFIGS)
+LOCAL_CFLAGS += -DLOG_TAG=\"$(LOCAL_MODULE)\"
+
+ifeq ($(CFG_HI_CIPHER_MULTICIPHER_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_MULTICIPHER_SUPPORT
+endif
+ifeq ($(CFG_HI_CIPHER_HASH_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_HASH_SUPPORT
+endif
+ifeq ($(CFG_HI_OTP_KLAD_V100),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V100_SUPPORT
+else ifeq ($(CFG_HI_OTP_KLAD_V200),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V200_SUPPORT
+endif
+
+LOCAL_SRC_FILES := sample_cbcmac.c
+
+LOCAL_C_INCLUDES := $(COMMON_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_API_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_API_INCLUDE)
+LOCAL_C_INCLUDES += $(SAMPLE_DIR)/common
+
+LOCAL_SHARED_LIBRARIES := liblog libcutils libdl libm libhi_common libhi_msp
+
+include $(BUILD_EXECUTABLE)
+##################################### sample_cenc #####################################
+include $(CLEAR_VARS)
+include $(SDK_DIR)/Android.def
+
+ifeq (1,$(filter 1,$(shell echo "$$(( $(PLATFORM_SDK_VERSION) >= 26 ))" )))
+LOCAL_PROPRIETARY_MODULE := true
+endif
+LOCAL_MODULE := sample_cenc
+LOCAL_MULTILIB := 32
+
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_CFLAGS := $(CFG_HI_CFLAGS) $(CFG_HI_BOARD_CONFIGS)
+LOCAL_CFLAGS += -DLOG_TAG=\"$(LOCAL_MODULE)\"
+
+ifeq ($(CFG_HI_CIPHER_MULTICIPHER_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_MULTICIPHER_SUPPORT
+endif
+ifeq ($(CFG_HI_CIPHER_HASH_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_HASH_SUPPORT
+endif
+ifeq ($(CFG_HI_OTP_KLAD_V100),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V100_SUPPORT
+else ifeq ($(CFG_HI_OTP_KLAD_V200),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V200_SUPPORT
+endif
+
+LOCAL_SRC_FILES := sample_cenc.c
+
+LOCAL_C_INCLUDES := $(COMMON_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_API_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_API_INCLUDE)
+LOCAL_C_INCLUDES += $(SAMPLE_DIR)/common
+
+LOCAL_SHARED_LIBRARIES := liblog libcutils libdl libm libhi_common libhi_msp
+
+include $(BUILD_EXECUTABLE)
+##################################### sample_dh #####################################
+include $(CLEAR_VARS)
+include $(SDK_DIR)/Android.def
+
+ifeq (1,$(filter 1,$(shell echo "$$(( $(PLATFORM_SDK_VERSION) >= 26 ))" )))
+LOCAL_PROPRIETARY_MODULE := true
+endif
+LOCAL_MODULE := sample_dh
+LOCAL_MULTILIB := 32
+
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_CFLAGS := $(CFG_HI_CFLAGS) $(CFG_HI_BOARD_CONFIGS)
+LOCAL_CFLAGS += -DLOG_TAG=\"$(LOCAL_MODULE)\"
+
+ifeq ($(CFG_HI_CIPHER_MULTICIPHER_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_MULTICIPHER_SUPPORT
+endif
+ifeq ($(CFG_HI_CIPHER_HASH_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_HASH_SUPPORT
+endif
+ifeq ($(CFG_HI_OTP_KLAD_V100),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V100_SUPPORT
+else ifeq ($(CFG_HI_OTP_KLAD_V200),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V200_SUPPORT
+endif
+
+LOCAL_SRC_FILES := sample_dh.c
+
+LOCAL_C_INCLUDES := $(COMMON_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_API_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_API_INCLUDE)
+LOCAL_C_INCLUDES += $(SAMPLE_DIR)/common
+
+LOCAL_SHARED_LIBRARIES := liblog libcutils libdl libm libhi_common libhi_msp
+
+include $(BUILD_EXECUTABLE)
+##################################### sample_ecdh #####################################
+include $(CLEAR_VARS)
+include $(SDK_DIR)/Android.def
+
+ifeq (1,$(filter 1,$(shell echo "$$(( $(PLATFORM_SDK_VERSION) >= 26 ))" )))
+LOCAL_PROPRIETARY_MODULE := true
+endif
+LOCAL_MODULE := sample_ecdh
+LOCAL_MULTILIB := 32
+
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_CFLAGS := $(CFG_HI_CFLAGS) $(CFG_HI_BOARD_CONFIGS)
+LOCAL_CFLAGS += -DLOG_TAG=\"$(LOCAL_MODULE)\"
+
+ifeq ($(CFG_HI_CIPHER_MULTICIPHER_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_MULTICIPHER_SUPPORT
+endif
+ifeq ($(CFG_HI_CIPHER_HASH_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_HASH_SUPPORT
+endif
+ifeq ($(CFG_HI_OTP_KLAD_V100),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V100_SUPPORT
+else ifeq ($(CFG_HI_OTP_KLAD_V200),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V200_SUPPORT
+endif
+
+LOCAL_SRC_FILES := sample_ecdh.c
+
+LOCAL_C_INCLUDES := $(COMMON_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_API_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_API_INCLUDE)
+LOCAL_C_INCLUDES += $(SAMPLE_DIR)/common
+
+LOCAL_SHARED_LIBRARIES := liblog libcutils libdl libm libhi_common libhi_msp
+
+include $(BUILD_EXECUTABLE)
+##################################### sample_ecdsa #####################################
+include $(CLEAR_VARS)
+include $(SDK_DIR)/Android.def
+
+ifeq (1,$(filter 1,$(shell echo "$$(( $(PLATFORM_SDK_VERSION) >= 26 ))" )))
+LOCAL_PROPRIETARY_MODULE := true
+endif
+LOCAL_MODULE := sample_ecdsa
+LOCAL_MULTILIB := 32
+
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_CFLAGS := $(CFG_HI_CFLAGS) $(CFG_HI_BOARD_CONFIGS)
+LOCAL_CFLAGS += -DLOG_TAG=\"$(LOCAL_MODULE)\"
+
+ifeq ($(CFG_HI_CIPHER_MULTICIPHER_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_MULTICIPHER_SUPPORT
+endif
+ifeq ($(CFG_HI_CIPHER_HASH_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_HASH_SUPPORT
+endif
+ifeq ($(CFG_HI_OTP_KLAD_V100),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V100_SUPPORT
+else ifeq ($(CFG_HI_OTP_KLAD_V200),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V200_SUPPORT
+endif
+
+LOCAL_SRC_FILES := sample_ecdsa.c
+
+LOCAL_C_INCLUDES := $(COMMON_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_API_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_API_INCLUDE)
+LOCAL_C_INCLUDES += $(SAMPLE_DIR)/common
+
+LOCAL_SHARED_LIBRARIES := liblog libcutils libdl libm libhi_common libhi_msp
+
+include $(BUILD_EXECUTABLE)
+##################################### sample_hash #####################################
+include $(CLEAR_VARS)
+include $(SDK_DIR)/Android.def
+
+ifeq (1,$(filter 1,$(shell echo "$$(( $(PLATFORM_SDK_VERSION) >= 26 ))" )))
+LOCAL_PROPRIETARY_MODULE := true
+endif
+LOCAL_MODULE := sample_hash
+LOCAL_MULTILIB := 32
+
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_CFLAGS := $(CFG_HI_CFLAGS) $(CFG_HI_BOARD_CONFIGS)
+LOCAL_CFLAGS += -DLOG_TAG=\"$(LOCAL_MODULE)\"
+
+ifeq ($(CFG_HI_CIPHER_MULTICIPHER_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_MULTICIPHER_SUPPORT
+endif
+ifeq ($(CFG_HI_CIPHER_HASH_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_HASH_SUPPORT
+endif
+ifeq ($(CFG_HI_OTP_KLAD_V100),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V100_SUPPORT
+else ifeq ($(CFG_HI_OTP_KLAD_V200),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V200_SUPPORT
+endif
+
+LOCAL_SRC_FILES := sample_hash.c
+
+LOCAL_C_INCLUDES := $(COMMON_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_API_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_API_INCLUDE)
+LOCAL_C_INCLUDES += $(SAMPLE_DIR)/common
+
+LOCAL_SHARED_LIBRARIES := liblog libcutils libdl libm libhi_common libhi_msp
+
+include $(BUILD_EXECUTABLE)
+##################################### sample_multicipher #####################################
+include $(CLEAR_VARS)
+include $(SDK_DIR)/Android.def
+
+ifeq (1,$(filter 1,$(shell echo "$$(( $(PLATFORM_SDK_VERSION) >= 26 ))" )))
+LOCAL_PROPRIETARY_MODULE := true
+endif
+LOCAL_MODULE := sample_multicipher
+LOCAL_MULTILIB := 32
+
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_CFLAGS := $(CFG_HI_CFLAGS) $(CFG_HI_BOARD_CONFIGS)
+LOCAL_CFLAGS += -DLOG_TAG=\"$(LOCAL_MODULE)\"
+
+ifeq ($(CFG_HI_CIPHER_MULTICIPHER_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_MULTICIPHER_SUPPORT
+endif
+ifeq ($(CFG_HI_CIPHER_HASH_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_HASH_SUPPORT
+endif
+ifeq ($(CFG_HI_OTP_KLAD_V100),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V100_SUPPORT
+else ifeq ($(CFG_HI_OTP_KLAD_V200),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V200_SUPPORT
+endif
+
+LOCAL_SRC_FILES := sample_multicipher.c
+
+LOCAL_C_INCLUDES := $(COMMON_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_API_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_API_INCLUDE)
+LOCAL_C_INCLUDES += $(SAMPLE_DIR)/common
+
+LOCAL_SHARED_LIBRARIES := liblog libcutils libdl libm libhi_common libhi_msp
+
+include $(BUILD_EXECUTABLE)
+##################################### sample_rng #####################################
+include $(CLEAR_VARS)
+include $(SDK_DIR)/Android.def
+
+ifeq (1,$(filter 1,$(shell echo "$$(( $(PLATFORM_SDK_VERSION) >= 26 ))" )))
+LOCAL_PROPRIETARY_MODULE := true
+endif
+LOCAL_MODULE := sample_rng
+LOCAL_MULTILIB := 32
+
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_CFLAGS := $(CFG_HI_CFLAGS) $(CFG_HI_BOARD_CONFIGS)
+LOCAL_CFLAGS += -DLOG_TAG=\"$(LOCAL_MODULE)\"
+
+ifeq ($(CFG_HI_CIPHER_MULTICIPHER_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_MULTICIPHER_SUPPORT
+endif
+ifeq ($(CFG_HI_CIPHER_HASH_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_HASH_SUPPORT
+endif
+ifeq ($(CFG_HI_OTP_KLAD_V100),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V100_SUPPORT
+else ifeq ($(CFG_HI_OTP_KLAD_V200),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V200_SUPPORT
+endif
+
+LOCAL_SRC_FILES := sample_rng.c
+
+LOCAL_C_INCLUDES := $(COMMON_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_API_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_API_INCLUDE)
+LOCAL_C_INCLUDES += $(SAMPLE_DIR)/common
+
+LOCAL_SHARED_LIBRARIES := liblog libcutils libdl libm libhi_common libhi_msp
+
+include $(BUILD_EXECUTABLE)
+##################################### sample_rsa_enc #####################################
+include $(CLEAR_VARS)
+include $(SDK_DIR)/Android.def
+
+ifeq (1,$(filter 1,$(shell echo "$$(( $(PLATFORM_SDK_VERSION) >= 26 ))" )))
+LOCAL_PROPRIETARY_MODULE := true
+endif
+LOCAL_MODULE := sample_rsa_enc
+LOCAL_MULTILIB := 32
+
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_CFLAGS := $(CFG_HI_CFLAGS) $(CFG_HI_BOARD_CONFIGS)
+LOCAL_CFLAGS += -DLOG_TAG=\"$(LOCAL_MODULE)\"
+
+ifeq ($(CFG_HI_CIPHER_MULTICIPHER_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_MULTICIPHER_SUPPORT
+endif
+ifeq ($(CFG_HI_CIPHER_HASH_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_HASH_SUPPORT
+endif
+ifeq ($(CFG_HI_OTP_KLAD_V100),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V100_SUPPORT
+else ifeq ($(CFG_HI_OTP_KLAD_V200),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V200_SUPPORT
+endif
+
+LOCAL_SRC_FILES := sample_rsa_enc.c
+
+LOCAL_C_INCLUDES := $(COMMON_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_API_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_API_INCLUDE)
+LOCAL_C_INCLUDES += $(SAMPLE_DIR)/common
+
+LOCAL_SHARED_LIBRARIES := liblog libcutils libdl libm libhi_common libhi_msp
+
+include $(BUILD_EXECUTABLE)
+##################################### sample_rsa_sign #####################################
+include $(CLEAR_VARS)
+include $(SDK_DIR)/Android.def
+
+ifeq (1,$(filter 1,$(shell echo "$$(( $(PLATFORM_SDK_VERSION) >= 26 ))" )))
+LOCAL_PROPRIETARY_MODULE := true
+endif
+LOCAL_MODULE := sample_rsa_sign
+LOCAL_MULTILIB := 32
+
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_CFLAGS := $(CFG_HI_CFLAGS) $(CFG_HI_BOARD_CONFIGS)
+LOCAL_CFLAGS += -DLOG_TAG=\"$(LOCAL_MODULE)\"
+
+ifeq ($(CFG_HI_CIPHER_MULTICIPHER_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_MULTICIPHER_SUPPORT
+endif
+ifeq ($(CFG_HI_CIPHER_HASH_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_HASH_SUPPORT
+endif
+ifeq ($(CFG_HI_OTP_KLAD_V100),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V100_SUPPORT
+else ifeq ($(CFG_HI_OTP_KLAD_V200),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V200_SUPPORT
+endif
+
+LOCAL_SRC_FILES := sample_rsa_sign.c
+
+LOCAL_C_INCLUDES := $(COMMON_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_API_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_API_INCLUDE)
+LOCAL_C_INCLUDES += $(SAMPLE_DIR)/common
+
+LOCAL_SHARED_LIBRARIES := liblog libcutils libdl libm libhi_common libhi_msp
+
+include $(BUILD_EXECUTABLE)
+##################################### sample_sm2 #####################################
+include $(CLEAR_VARS)
+include $(SDK_DIR)/Android.def
+
+ifeq (1,$(filter 1,$(shell echo "$$(( $(PLATFORM_SDK_VERSION) >= 26 ))" )))
+LOCAL_PROPRIETARY_MODULE := true
+endif
+LOCAL_MODULE := sample_sm2
+LOCAL_MULTILIB := 32
+
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_CFLAGS := $(CFG_HI_CFLAGS) $(CFG_HI_BOARD_CONFIGS)
+LOCAL_CFLAGS += -DLOG_TAG=\"$(LOCAL_MODULE)\"
+
+ifeq ($(CFG_HI_CIPHER_MULTICIPHER_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_MULTICIPHER_SUPPORT
+endif
+ifeq ($(CFG_HI_CIPHER_HASH_SUPPORT),y)
+    LOCAL_CFLAGS += -DCFG_HI_CIPHER_HASH_SUPPORT
+endif
+ifeq ($(CFG_HI_OTP_KLAD_V100),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V100_SUPPORT
+else ifeq ($(CFG_HI_OTP_KLAD_V200),y)
+    LOCAL_CFLAGS += -DCA_FRAMEWORK_V200_SUPPORT
+endif
+
+LOCAL_SRC_FILES := sample_sm2.c
+
+LOCAL_C_INCLUDES := $(COMMON_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(COMMON_API_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_UNF_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_DRV_INCLUDE)
+LOCAL_C_INCLUDES += $(MSP_API_INCLUDE)
+LOCAL_C_INCLUDES += $(SAMPLE_DIR)/common
+
+LOCAL_SHARED_LIBRARIES := liblog libcutils libdl libm libhi_common libhi_msp
+
+include $(BUILD_EXECUTABLE)
