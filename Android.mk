@@ -8,7 +8,7 @@ define first_makefile_under
     $(wildcard $(addsuffix /Android.mk, $(addprefix $(SAMPLE_PATH)/,$(1))))
 endef
 
-SAMPLE_MODULE := common network esplay tsplay omxvdec dispmng hdmitx
+SAMPLE_MODULE := common network esplay tsplay omxvdec dispmng hdmitx i2c i2c-tools
 
 ifeq ($(CFG_HI_FRONTEND_SUPPORT),y)
 SAMPLE_MODULE += demux frontend

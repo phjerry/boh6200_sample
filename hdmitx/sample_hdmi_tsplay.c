@@ -19,6 +19,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <dirent.h>
+#include <termios.h>
 
 #include "securec.h"
 #include "hi_unf_avplay.h"
@@ -265,12 +266,26 @@ static hi_s32 proc_evt_func(hi_handle avplay, hi_unf_avplay_event_type evt, hi_v
 
 static void process_input_cmd()
 {
-    hi_s32 ret;
-    hi_char input_cmd[HDMI_INPUT_CMD_MAX] = {0};
-
+    hi_s32 ret,i;
+    hi_char input_cmd[HDMI_INPUT_CMD_MAX] = {0},ch1;
     hi_bool prompt = HI_TRUE;
     fd_set rfds;
-    struct timeval tv;
+    struct timeval tv;	
+	struct termios term;
+
+	
+	memset(&term,0,sizeof(term));
+	if(tcgetattr(STDIN_FILENO,&term)==-1)
+	{
+   		printf("tcgetattr() failed ! error message:%s\n",strerror(errno));
+    	return ;
+	}
+	term.c_cc[VERASE]='\b';
+	if(tcsetattr(STDIN_FILENO,TCSANOW,&term)==-1)
+	{
+    	printf("tcsetattr() failed ! error message:%s\n",strerror(errno));
+        return ;
+	}
 
     printf("input  q  to quit\n" \
            "input  h  to get help\n");
@@ -278,7 +293,7 @@ static void process_input_cmd()
         memset(input_cmd, 0, sizeof(input_cmd));
         if (prompt) {
             prompt = HI_FALSE;
-            printf("hdmi_cmd >");
+            printf("ph hdmi_cmd >");
             fflush(stdout);
         }
 
