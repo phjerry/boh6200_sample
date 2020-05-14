@@ -16,6 +16,9 @@ CFLAGS := -I$(USR_DIR)/include \
           -I$(SAMPLE_DIR)/common
 SAMPLE_IMAGES := sample_i2c_read sample_i2c_write
 
+LOCAL_OBJS := sample_i2c_read.o sample_i2c_write.o
+
+COMMON_OBJS := $(COMMON_SRCS:%.c=%.o)
 DEPEND_LIBS := -lhi_msp -lhi_memory -lhi_common -lhi_securec
 
 include $(SAMPLE_DIR)/hi_sample_rules.mak

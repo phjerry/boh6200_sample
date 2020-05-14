@@ -1,0 +1,60 @@
+#===============================================================================
+# export variable
+#===============================================================================
+ifeq ($(CFG_HI_EXPORT_FLAG),)
+SDK_DIR := $(shell cd $(CURDIR)/../.. && /bin/pwd)
+include $(SDK_DIR)/base.mak
+endif
+
+include $(SAMPLE_DIR)/base.mak
+
+#===============================================================================
+# local variable
+#===============================================================================
+
+SAMPLE_IMAGES := inv478x_main
+
+#LOCAL_OBJS := sample_i2c_read.o sample_i2c_write.o
+LOCAL_OBJS := 	./inv_host_drivers/inv478x/inv478x_hal/inv478x_hal.o -Werror \
+			./inv478x_ArcRx_example/inv478x_main.o -Werror \
+			./inv_host_drivers/inv478x/inv478x.o -Werror \
+			./inv_host_drivers/common/cra/inv_drv_cra.o -Werror \
+			./inv_host_drivers/common/ipc/inv_drv_ipc.o -Werror\
+			./inv_host_drivers/common/isp/inv_drv_isp.o -Werror \
+			./inv_host_drivers/common/log/inv_sys_log.o -Werror \
+			./inv_host_drivers/common/malloc/inv_sys_malloc.o -Werror \
+			./inv_host_drivers/common/obj/inv_sys_obj.o -Werror \
+			./inv_host_drivers/common/time/inv_sys_time.o -Werror \
+			./inv_host_drivers/common/ipc_master/inv_drv_ipc_master.o -Werror \
+			./inv_host_drivers/platforms\pc/inv_platform_wrapper.o -Werror \
+			./inv_host_drivers/platforms/pc/inv_adapter.o -Werror \
+			./inv_host_drivers/platforms/cec/inv_cec_api.o -Werror
+
+
+CFLAGS :=  	-I$(USR_DIR)/include \
+            -I$(DRV_DIR)/include \
+            -I$(SAMPLE_DIR)/common \
+			-I./ \
+			-I./inv478x_ArcRx_example \
+			-I./inv_host_drivers/inv478x/inv478x_hal   \
+			-I./inv_host_drivers/inv478x \
+			-I./inv_host_drivers/common/cra\
+			-I./inv_host_drivers/common/ipc  \
+			-I./inv_host_drivers/common/isp  \
+			-I./inv_host_drivers/common/log  \
+			-I./inv_host_drivers/common/malloc  \
+			-I./inv_host_drivers/common/obj  \
+			-I./inv_host_drivers/common/seq  \
+			-I./inv_host_drivers/common/time  \
+			-I./inv_host_drivers/internal \
+			-I./inv_host_drivers/platforms/pc \
+			-I./inv_host_drivers/platforms \
+			-I./inv_host_drivers/platforms/cec\
+			-I./inv_host_drivers/common\
+			-I./inv_host_drivers/common/ipc_master\
+			-I./inv_host_drivers/inv478x/comlib
+
+COMMON_OBJS := $(COMMON_SRCS:%.c=%.o)
+DEPEND_LIBS := -lhi_msp -lhi_memory -lhi_common -lhi_securec
+
+include $(SAMPLE_DIR)/hi_sample_rules.mak
